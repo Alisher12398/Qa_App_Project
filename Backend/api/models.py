@@ -211,6 +211,6 @@ class OffersPurchases(models.Model):
         }
     
 class TestClass(models.Model):
-    name = models.CharField('Question', max_length=40)
+    name = models.CharField('Question', max_length=50)
 
 

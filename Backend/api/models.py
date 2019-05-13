@@ -209,4 +209,8 @@ class OffersPurchases(models.Model):
             'purchase_day': self.purchase_day,
             'promocode': self.get_promocode(),
         }
+    
+class TestClass(models.Model):
+    name = models.CharField('Question', max_length=40)
+
 

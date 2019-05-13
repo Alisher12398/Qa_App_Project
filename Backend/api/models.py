@@ -210,3 +210,6 @@ class OffersPurchases(models.Model):
             'promocode': self.get_promocode(),
         }
 
+
+class TestClass2(models.Model):
+    name2 = models.CharField(max_length=30)

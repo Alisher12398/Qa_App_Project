@@ -7,6 +7,7 @@ pip install django-filter
 pip install django-cors-headers
 pip install django-rest-framework-social-oauth2
 
+###
 
 INSTALLED_APPS = (
     ...

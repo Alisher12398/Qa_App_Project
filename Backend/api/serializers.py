@@ -61,3 +61,47 @@ class QaSerizlizer(serializers.Serializer):
         instance.answer_4 = validated_data.get('answer_4', instance.answer_4)
         instance.answer_right = validated_data.get('answer_right', instance.answer_right)
         instance.save()
+
+class CompanySerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(required=True)
+
+    def create(self, validated_data):
+        company = Company(**validated_data)
+        company.save()
+        return company
+
+    def update(self, instance, validated_data):
+        instance.name = validated_data.get('name', instance.name)
+        instance.save()
+
+class OffersSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    id_company = CompanySerializer(read_only=True)
+    title = serializers.CharField(required=True)
+
+    def create(self, validated_data):
+        offer = Offers(**validated_data)
+        offer.save()
+        return offer
+
+    def update(self, instance, validated_data):
+        instance.title = validated_data.get('title', instance.title)
+        instance.save()
+
+class OffersPurchasesSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    owner = UserSerializer(read_only=True)
+    id_offer = OffersSerializer(read_only=True)
+    promocode = serializers.CharField()
+    purchase_day = serializers.DateTimeField(required=True)
+
+    def create(self, validated_data):
+        offer = Offers(**validated_data)
+        offer.save()
+        return offer
+
+    def update(self, instance, validated_data):
+        instance.promocode = validated_data.get('promocode', instance.promocode)
+        instance.purchase_day = validated_data.get('purchase_day', instance.purchase_day)
+        instance.save()

@@ -1,4 +1,3 @@
-from django.db import models
 from django.contrib.auth.models import User
 from django.db import models
 from datetime import datetime
@@ -14,6 +13,8 @@ class Group(models.Model):
     id_prerequisite = models.IntegerField('ID prerequisite', default=0)
     background_color = models.CharField('Background color', max_length=10)
     price = models.IntegerField('Price')
+
+    objects = GroupManager()
 
     def __str__(self):
         return '{}: {}'.format(self.id, self.title)
@@ -94,6 +95,8 @@ class Data(models.Model):
     id_group = models.ForeignKey(Group, on_delete=models.CASCADE)
     points = models.IntegerField('Points')
 
+    objects = DataManager()
+
     def __str__(self):
         return '{}: {}'.format(self.id_user, self.id_group)
 
@@ -117,6 +120,7 @@ class GroupsPurchases(models.Model):
     id_user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_group = models.ForeignKey(Group, on_delete=models.CASCADE)
 
+    objects = GroupsPurchasesManager()
     def __str__(self):
         return '{}: {}'.format(self.id_user, self.id_group)
 
@@ -168,31 +172,41 @@ class Offers(models.Model):
     def get_id_value(self):
         return self.id
 
-class OffersPurchasesManager(models.Manager):
-    def for_user(self, user):
-        return self.filter(id_user=user)
+    def get_id2(self):
+        return self.id
 
-def generate_promocode():
+
+def generate_promocode(offer):
     date = datetime.now()
     day = 100 - int(date.day)
     month = int((str(date.month)[::-1]))
-    promocode = '/' + str(day) + str(month)
+    promocode = str(offer) +'/' + str(day) + str(month)
     return promocode
 
+class OffersPurchasesManager(models.Manager):
+    def for_user(self, user):
+        return self.filter(owner=user)
+
 class OffersPurchases(models.Model):
-    id_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     id_offer = models.ForeignKey(Offers, on_delete=models.CASCADE)
-    promocode = models.CharField('Promocode', max_length=100, default=generate_promocode(),null=True)
+    promocode = models.CharField('Promocode', max_length=100, null=True)
     purchase_day = models.DateTimeField('Purchase day', default=datetime.now(), blank=True)
 
+    objects = OffersPurchasesManager()
+
     def __str__(self):
-        return '{}: {}'.format(self.id_user, self.id_offer)
+        return '{}: {}'.format(self.owner, self.id_offer)
+
+    def get_promocode(self):
+        return generate_promocode(self.id_offer.get_id2())
 
     def get_user_offers(self):
         return {
             'id': self.id,
-            'id_user': self.id_user.id,
+            'id_user': self.owner.id,
             'id_offer': self.id_offer.get_id(),
             'purchase_day': self.purchase_day,
-            'promocode': self.promocode,
+            'promocode': self.get_promocode(),
         }
+

@@ -1,8 +1,14 @@
-V001.13.05:
+V001:
 Backend:
 *Add Project, Api, Auth_
 *Add Serializer, fbv files
 *In Api(models,serializers,urls,admin) add Group
 *Add Social-OAuth2
+Frontend:
+*No changes
+
+V002:
+Backend:
+*In Api(models,serializers,urls,admin) add Offers, Offer_purchases, Qa
 Frontend:
 *No changes

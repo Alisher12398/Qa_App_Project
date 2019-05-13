@@ -1,8 +1,5 @@
 Backend:
 
-####
-Create venv: Qa_App_Project/venv/
-
 Required Frameworks:
 pip install djangorestframework
 pip install markdown

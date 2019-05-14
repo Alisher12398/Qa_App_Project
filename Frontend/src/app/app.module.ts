@@ -13,9 +13,17 @@ import { AuthInterceptor } from './AuthInterceptor';
 import { ProviderService } from './shared/services/provider.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CompaniesComponent } from './companies/companies.component';
-import { AccountComponent } from './account/account.component';
-import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { AboutComponent } from './about/about.component';
+import { TeamInfoComponent } from './team-info/team-info.component';
+import { FooterComponent } from './footer/footer.component';
+import { LogformComponent } from './logform/logform.component';
+import { RegisterformComponent } from './registerform/registerform.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { AccountComponent } from './account/account.component';
+
 
 @NgModule({
   declarations: [
@@ -25,10 +33,17 @@ import { HeaderComponent } from './header/header.component';
     BaseComponent,
     MainComponent,
     OffersComponent,
-    AccountComponent,
     CompaniesComponent,
+    HeaderComponent,
+    JumbotronComponent,
+    AboutComponent,
+    TeamInfoComponent,
     FooterComponent,
-    HeaderComponent
+    LogformComponent,
+    RegisterformComponent,
+    LoginComponent,
+    RegistrationComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,

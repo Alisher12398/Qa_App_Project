@@ -61,22 +61,7 @@ class QaSerializer(serializers.Serializer):
         instance.answer_4 = validated_data.get('answer_4', instance.answer_4)
         instance.answer_right = validated_data.get('answer_right', instance.answer_right)
         instance.save()
-
-class UserInfoSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    username = serializers.CharField(required=True)
-    user_points = serializers.IntegerField(required=True)
-    avatar = serializers.CharField(required=True)
-    id_offers = OffersSerializer(read_only=True)
-
-    def create(self, validated_data):
-        user = UserInfo(**validated_data)
-        user.save()
-        return user
-
-    def update(self, instance, validated_data):
-        intance.username = validated_data.get('username', instance.username)
-        instance.save()    
+   
         
 class DataSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
@@ -105,8 +90,6 @@ class GroupsPurchasesSerializer(serializers.Serializer):
 
     def update(self, instance, validated_data):
         instance.save()
-
-# class UserInfoSerializer(serializers.Serializer):
 
 class CompanySerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
@@ -151,3 +134,19 @@ class OffersPurchasesSerializer(serializers.Serializer):
         instance.promocode = validated_data.get('promocode', instance.promocode)
         instance.purchase_day = validated_data.get('purchase_day', instance.purchase_day)
         instance.save()
+
+class UserInfoSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    username = serializers.CharField(required=True)
+    user_points = serializers.IntegerField(required=True)
+    avatar = serializers.CharField(required=True)
+    id_offers = OffersSerializer(read_only=True)
+
+    def create(self, validated_data):
+        user = UserInfo(**validated_data)
+        user.save()
+        return user
+
+    def update(self, instance, validated_data):
+        intance.username = validated_data.get('username', instance.username)
+        instance.save() 

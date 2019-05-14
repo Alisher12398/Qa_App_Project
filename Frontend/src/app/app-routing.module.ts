@@ -4,7 +4,7 @@ import { BaseComponent } from './base/base.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
-   {path: '', component: BaseComponent}
+   {path: '', component: BaseComponent},
    { path: 'profile', component: ProfileComponent},
 ];
 

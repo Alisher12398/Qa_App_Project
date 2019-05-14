@@ -11,6 +11,11 @@ export interface IProfile{
   avatar: string
 }
 
+export interface ICompany {
+  id: number,
+  name: string,
+}
+
 export interface IOffers {
   id: number,
   id_company: string,

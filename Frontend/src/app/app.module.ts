@@ -23,6 +23,7 @@ import { RegisterformComponent } from './registerform/registerform.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AccountComponent } from './account/account.component';
+import { QuizformComponent } from './quizform/quizform.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { AccountComponent } from './account/account.component';
     LoginComponent,
     RegistrationComponent,
     AccountComponent,
+    QuizformComponent,
   ],
   imports: [
     BrowserModule,

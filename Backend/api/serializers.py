@@ -38,7 +38,7 @@ class GroupSerializer(serializers.Serializer):
         instance.price = validated_data.get('price', instance.price)
         instance.save()
 
-class QaSerizlizer(serializers.Serializer):
+class QaSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     id_group = GroupSerializer(read_only=True)
     question = serializers.CharField(required=True)
@@ -60,6 +60,34 @@ class QaSerizlizer(serializers.Serializer):
         instance.answer_3 = validated_data.get('answer_3', instance.answer_3)
         instance.answer_4 = validated_data.get('answer_4', instance.answer_4)
         instance.answer_right = validated_data.get('answer_right', instance.answer_right)
+        instance.save()
+
+class DataSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    id_user = UserSerializer(read_only=True)
+    id_group = GroupSerializer(read_only=True)
+    points = serializers.IntegerField(required=True)
+
+    def create(self, validated_data):
+        data = Data(**validated_data)
+        data.save()
+        return data
+
+    def update(self, instance, validated_data):
+        instance.points = validated_data.get('points', instance.points)
+        instance.save()
+
+class GroupsPurchasesSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    id_user = UserSerializer(read_only=True)
+    id_group = GroupSerializer(read_only=True)
+
+    def create(self, validated_data):
+        groups_purchase = Company(**validated_data)
+        groups_purchase.save()
+        return groups_purchase
+
+    def update(self, instance, validated_data):
         instance.save()
 
 class CompanySerializer(serializers.Serializer):

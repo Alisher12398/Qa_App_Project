@@ -1,8 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from api.serializers import OffersPurchasesSerializer, OffersSerializer, CompanySerializer, GroupSerializer, QaSerizlizer
-from api.models import Group, Company, Offers,OffersPurchases
+from api.serializers import QaSerializer, DataSerializer, OffersPurchasesSerializer, OffersSerializer, CompanySerializer, GroupSerializer
+from api.models import Group, Data, Qa, Company, Offers,OffersPurchases
 @api_view(['GET', 'POST'])
 def groups(request):
     if request.method == 'GET':
@@ -15,6 +15,33 @@ def groups(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['GET', 'POST'])
+def qa(request, id_group):
+    if request.method == 'GET':
+        qas = Qa.objects.filter(id_group=id_group)
+        serializer = QaSerializer(qas, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = QaSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@api_view(['GET', 'POST'])
+def data(request):
+    if request.method == 'GET':
+        data_ = Data.objects.for_user(request.user)
+        serializer = DataSerializer(data_, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = DataSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
 
 @api_view(['GET', 'POST'])
 def company(request):

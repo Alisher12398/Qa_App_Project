@@ -8,7 +8,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.authtoken.models import Token
-
+from api.models import Data, Group
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
@@ -18,8 +18,12 @@ class UserList(generics.ListAPIView):
 @api_view(['POST'])
 def register(request):
     serializer = UserRegisterSerializer(data=request.data)
+
     if serializer.is_valid():
         user = serializer.save()
+        for group in Group.objects.all():
+            data = Data.objects.create(id_user=user, id_group=group, points=0)
+
         user.set_password(serializer.data['password'])
         user.save()
         token, _ = Token.objects.get_or_create(user=user)

@@ -13,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 import {AuthInterceptor} from './AuthInterceptor';
 import { ProviderService } from './shared/services/provider.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CompaniesComponent } from './companies/companies.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileComponent,
     BaseComponent,
     MainComponent,
-    OffersComponent
+    OffersComponent,
+    CompaniesComponent
   ],
   imports: [
     BrowserModule,

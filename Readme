@@ -1,5 +1,5 @@
 Backend:
-##
+
 Required Frameworks:
 pip install djangorestframework
 pip install markdown
@@ -8,6 +8,16 @@ pip install django-cors-headers
 pip install django-rest-framework-social-oauth2
 
 ###
+
+*disable TSLint in settings
+sudo npm install ngx-bootstrap --save
+sudo npm install bootstrap jquery
+sudo npm install angular-moment moment --save
+sudo npm install --save popper.js angular-popper
+
+
+
+
 
 INSTALLED_APPS = (
     ...

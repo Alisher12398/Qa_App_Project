@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BaseComponent } from './base/base.component';
 import { MainComponent } from './main/main.component';
-import { CompaniesComponent } from './companies/companies.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { OffersComponent } from './offers/offers.component';
 const routes: Routes = [
   { path: '', component: MainComponent },
-  { path: 'companies', component: CompaniesComponent },
+  { path: 'companies', component: OffersComponent },
   { path: 'registration', component: RegistrationComponent},
   { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent},
+  { path: 'quiz', component: QuizComponent},
 ];
 
 @NgModule({

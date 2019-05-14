@@ -61,8 +61,7 @@ class QaSerializer(serializers.Serializer):
         instance.answer_4 = validated_data.get('answer_4', instance.answer_4)
         instance.answer_right = validated_data.get('answer_right', instance.answer_right)
         instance.save()
-   
-        
+
 class DataSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     id_user = UserSerializer(read_only=True)
@@ -148,5 +147,6 @@ class UserInfoSerializer(serializers.Serializer):
         return user
 
     def update(self, instance, validated_data):
-        intance.username = validated_data.get('username', instance.username)
-        instance.save() 
+        instance.username = validated_data.get('username', instance.username)
+        instance.save()
+        

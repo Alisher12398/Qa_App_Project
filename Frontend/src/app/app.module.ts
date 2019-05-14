@@ -24,6 +24,8 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AccountComponent } from './account/account.component';
 import { QuizformComponent } from './quizform/quizform.component';
+import { GroupsComponent } from './groups/groups.component';
+import { GroupsformComponent } from './groupsform/groupsform.component';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { QuizformComponent } from './quizform/quizform.component';
     RegistrationComponent,
     AccountComponent,
     QuizformComponent,
+    GroupsComponent,
+    GroupsformComponent,
   ],
   imports: [
     BrowserModule,

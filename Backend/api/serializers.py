@@ -90,6 +90,8 @@ class GroupsPurchasesSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         instance.save()
 
+# class UserInfoSerializer(serializers.Serializer):
+
 class CompanySerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True)

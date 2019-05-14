@@ -54,6 +54,30 @@ class Qa(models.Model):
             'answer_right': self.answer_right,
         }
 
+class UserInfo(models.Model):
+    username = models.CharField(max_length = 40)
+    user_points = models.IntegerField(0)
+    avatar = models.CharField(max_length = 255) 
+    id_offers = models.ForeignKey(Offers, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return '{}: {}'.format(self.id, self.username)
+    
+    def get_username(self):
+        return '{}'.format(self.username)
+
+    def get_id(self):
+        return '{}'.format(self.id)
+
+    def get_user_points(self):
+        return 0
+
+    def get_avatar(self):
+        return self.avatar
+
+
+
 # class User(models.Model):
 #     name = models.CharField(max_length=40)
 #     firstname= models.CharField(max_length=30, null=True)

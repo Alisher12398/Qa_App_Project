@@ -13,6 +13,10 @@ import { AuthInterceptor } from './AuthInterceptor';
 import { ProviderService } from './shared/services/provider.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CompaniesComponent } from './companies/companies.component';
+import { AccountComponent } from './account/account.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,8 +25,10 @@ import { CompaniesComponent } from './companies/companies.component';
     BaseComponent,
     MainComponent,
     OffersComponent,
-    // AccountComponent,
-    CompaniesComponent
+    AccountComponent,
+    CompaniesComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

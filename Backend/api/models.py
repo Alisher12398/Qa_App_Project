@@ -54,6 +54,14 @@ class Qa(models.Model):
             'answer_right': self.answer_right,
         }
 
+
+# class ProfileManager(models.Manager):
+#     def for_user(self, user):
+#         return self.filter(owner=user)
+
+
+
+
 class UserInfo(models.Model):
     username = models.CharField(max_length = 40)
     user_points = models.IntegerField(0)

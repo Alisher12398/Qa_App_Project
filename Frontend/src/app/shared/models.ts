@@ -4,6 +4,13 @@ export interface IUser {
   email: string
 }
 
+export interface IProfile{
+  id: number,
+  username: string,
+  user_points: number,
+  avatar: string
+}
+
 export interface IOffers {
   id: number,
   id_company: string,
@@ -17,3 +24,4 @@ export interface IOffersPurchases {
   promocode: string,
   purchase_day: string
 }
+

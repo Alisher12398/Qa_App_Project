@@ -5,12 +5,13 @@ import { MainComponent } from './main/main.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'companies', component: CompaniesComponent },
   { path: 'registration', component: RegistrationComponent},
   { path: 'login', component: LoginComponent},
-  
+  { path: 'profile', component: ProfileComponent},
 ];
 
 @NgModule({

@@ -4,6 +4,11 @@ export interface IUser {
   email: string
 }
 
+export interface ICompany {
+  id: number,
+  name: string
+}
+
 export interface IProfile{
   id: number,
   username: string,
@@ -13,14 +18,14 @@ export interface IProfile{
 
 export interface IOffers {
   id: number,
-  id_company: string,
+  id_company: ICompany,
   title: string
 }
 
 export interface IOffersPurchases {
   id: number,
   owner: string,
-  id_offer: string,
+  id_offer: IOffers,
   promocode: string,
   purchase_day: string
 }

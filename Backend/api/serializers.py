@@ -62,6 +62,9 @@ class QaSerizlizer(serializers.Serializer):
         instance.answer_right = validated_data.get('answer_right', instance.answer_right)
         instance.save()
 
+# class UserInfoSerializer(serializers.Serializer):
+
+
 class CompanySerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True)

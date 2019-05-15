@@ -26,6 +26,7 @@ import { AccountComponent } from './account/account.component';
 import { QuizformComponent } from './quizform/quizform.component';
 import { GroupsComponent } from './groups/groups.component';
 import { GroupsformComponent } from './groupsform/groupsform.component';
+import { QaComponent } from './qa/qa.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { GroupsformComponent } from './groupsform/groupsform.component';
     QuizformComponent,
     GroupsComponent,
     GroupsformComponent,
+    QaComponent,
   ],
   imports: [
     BrowserModule,

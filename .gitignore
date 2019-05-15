@@ -216,3 +216,6 @@ yarn-error.log
 #
 #
 Backend/.idea/workspace.xml
+Backend/.idea/workspace.xml
+Backend/api/migrations/
+Backend/.idea/workspace.xml

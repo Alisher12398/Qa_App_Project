@@ -28,6 +28,10 @@ import { GroupsComponent } from './groups/groups.component';
 import { GroupsformComponent } from './groupsform/groupsform.component';
 import { QaComponent } from './qa/qa.component';
 
+let routes = [
+  { path: "", redirectTo: "/login", pathMatch: "full" },
+  { path: "login", component: LoginComponent },
+];
 
 @NgModule({
   declarations: [

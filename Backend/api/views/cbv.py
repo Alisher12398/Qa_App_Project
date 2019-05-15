@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authentication import authenticate, TokenAuthentication
-from api.serializers import QaModelSerializer, CompanyModelSerializer
+from api.serializers import QaModelSerializer, CompanyModelSerializer, GroupModelSerializer
 from api.models import Group, Data, Qa, Company, Offers, OffersPurchases
 
 #CBV 
@@ -51,3 +51,22 @@ class CompanyGenericsCBView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
 
+
+class GroupCBView(APIView):
+    def get(self, request):
+        groups = groups.objects.all()
+        serializer = GroupModelSerializer(groups, many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        serializer = GroupModelSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status.HTTP_400_BAD_REQUEST) 
+
+
+class GroupsGenericsCBView(generics.ListCreateAPIView):
+    queryset = Groups.objects.all()
+    serializer_class = GroupsModelSerializer
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)

@@ -5,6 +5,8 @@ urlpatterns = [
     path('groups/', groups),
     # path('qas/', QaCBView.as_view()),
     # path('qas/', QaGenericsCBView.as_view()),
+    # path('groups/', GroupCBView.as_view()),
+    # path('groups/', GroupGenericsCBView.as_view()),
     # path('company/', CompanyCBView.as_view()),
     # path('company/', CompanyGenericsCBView.as_view()),
     path('company/', company),

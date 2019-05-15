@@ -20,7 +20,7 @@ export class CompaniesComponent implements OnInit {
 
   ngOnInit() {
     this.provider.getOffers().then(res => {
-      this.offers = res
+      this.offers = res;
     })
 
     // createOfferPurchase() {

@@ -61,6 +61,12 @@ class QaSerializer(serializers.Serializer):
         instance.answer_4 = validated_data.get('answer_4', instance.answer_4)
         instance.answer_right = validated_data.get('answer_right', instance.answer_right)
         instance.save()
+
+# class QaModelSerializer(serializers.ModelSerializer):
+
+#     class Meta:
+#         model = Qa
+#         fields = ['id_group', 'question', 'answer_1', 'answer_2', 'answer_3', 'answer_4', 'answer_right']
         
 class DataSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)

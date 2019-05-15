@@ -17,6 +17,7 @@ export class QaComponent implements OnInit {
 
   public id : number;
 
+  public id_qa : number;
   public qa_question: string = "";
   public qa_answer_1: string = "";
   public qa_answer_2: string = "";

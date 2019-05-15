@@ -148,5 +148,5 @@ class UserInfoSerializer(serializers.Serializer):
         return user
 
     def update(self, instance, validated_data):
-        intance.username = validated_data.get('username', instance.username)
+        instance.username = validated_data.get('username', instance.username)
         instance.save() 

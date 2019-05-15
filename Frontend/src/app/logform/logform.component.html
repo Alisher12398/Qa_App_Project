@@ -8,8 +8,8 @@
       
       <div class="intro-info">
         <h2>Войдите в аккаунт</h2>
-        <input id="mail_sign" type="text" class="btn btn-primary" placeholder="Почта/никнейм">
-        <input id="passw_sign" type="password" class="btn btn-primary" placeholder="Пароль">
+        <input id="mail_sign" type="text" [(ngModel)]="username" class="btn btn-primary" placeholder="Почта/никнейм">
+        <input id="passw_sign" type="password" [(ngModel)]="password" class="btn btn-primary" placeholder="Пароль">
         
         <div>
           <a routerLink="/registration" class="btn-get-started scrollto">Зарегистрироваться</a>

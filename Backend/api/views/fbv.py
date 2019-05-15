@@ -1,8 +1,14 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.authentication import authenticate, TokenAuthentication
+from rest_framework import generics
+from rest_framework.views import APIView
 from api.serializers import QaSerializer, DataSerializer, OffersPurchasesSerializer, OffersSerializer, CompanySerializer, GroupSerializer
-from api.models import Group, Data, Qa, Company, Offers,OffersPurchases
+from api.models import Group, Data, Qa, Company, Offers, OffersPurchases
+from django.http import Http404
+
 @api_view(['GET', 'POST'])
 def groups(request):
     if request.method == 'GET':
@@ -56,6 +62,7 @@ def company(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
 @api_view(['GET', 'POST'])
 def offer(request):
     if request.method == 'GET':
@@ -81,7 +88,6 @@ def offer_purchases(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
 
     # @api_view(['GET', 'POST'])
     # def contacts(request):
@@ -115,4 +121,3 @@ def offer_purchases(request):
     #     elif request.method == 'DELETE':
     #         contacts.delete()
     #         return Response(status=status.HTTP_204_NO_CONTENT)
-

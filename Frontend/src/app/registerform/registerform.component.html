@@ -9,13 +9,13 @@
       <div class="intro-info">
         <h2>Регистрация</h2>
                 
-        <input type="mail" id="mail_reg" class="btn btn-primary" placeholder="Почта">
-        <input type="text" id="nick_reg" class="btn btn-primary" placeholder="Никнейм">
-        <input type="password" id="passw_reg" class="btn btn-primary" placeholder="Пароль">
-        <input type="password" id="passw2_reg" class="btn btn-primary" placeholder="Подтвердите пароль">
+        <input type="mail" id="mail_reg" [(ngModel)]="mail" class="btn btn-primary" placeholder="Почта">
+        <input type="text" id="nick_reg" [(ngModel)]="username" class="btn btn-primary" placeholder="Никнейм">
+        <input type="password" id="passw_reg"  [(ngModel)]="password" class="btn btn-primary" placeholder="Пароль">
+        <input type="password" id="passw2_reg"[(ngModel)]="password2" class="btn btn-primary" placeholder="Подтвердите пароль">
         
         <div>
-            <a routerLink="/login" class="btn-get-started scrollto">Войти</a>
+            <a routerLink="/login" class="btn-get-started scrollto" >Войти</a>
             <a routerLink="/registration" class="btn-get-started scrollto" style="float:right">Зарегистрироваться</a>
             
         </div>

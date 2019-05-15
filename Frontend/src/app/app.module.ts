@@ -27,7 +27,12 @@ import { QuizformComponent } from './quizform/quizform.component';
 import { GroupsComponent } from './groups/groups.component';
 import { GroupsformComponent } from './groupsform/groupsform.component';
 import { QaComponent } from './qa/qa.component';
+import { RegisterComponent } from './auth/register/register.component';
 
+let routes = [
+  { path: "", redirectTo: "/login", pathMatch: "full" },
+  { path: "login", component: LoginComponent },
+];
 
 @NgModule({
   declarations: [
@@ -52,6 +57,7 @@ import { QaComponent } from './qa/qa.component';
     GroupsComponent,
     GroupsformComponent,
     QaComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

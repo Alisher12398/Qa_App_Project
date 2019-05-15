@@ -1,5 +1,6 @@
 from django.urls import path
 from .views.fbv import *
+from .views.cbv import *
 urlpatterns = [
     path('groups/', groups),
     #path('qas/', QaCBView.as_view()),

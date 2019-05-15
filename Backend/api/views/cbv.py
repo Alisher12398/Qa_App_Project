@@ -3,8 +3,11 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authentication import authenticate, TokenAuthentication
-from api.serializers import QaModelSerializer, CompanyModelSerializer
+from rest_framework import generics
+from rest_framework.views import APIView
+from api.serializers import QaModelSerializer, CompanyModelSerializer, GroupModelSerializer
 from api.models import Group, Data, Qa, Company, Offers, OffersPurchases
+from django.http import Http404
 
 #CBV 
 
@@ -34,7 +37,7 @@ class QaGenericsCBView(generics.ListCreateAPIView):
 class CompanyCBView(APIView):
     def get(self, request):
         companies = Company.objects.all()
-        serializer = CompanyModelSerializer(qas, many=True)
+        serializer = CompanyModelSerializer(companies, many=True)
         return Response(serializer.data)
 
     def post(self, request):
@@ -51,3 +54,22 @@ class CompanyGenericsCBView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)
 
+
+class GroupCBView(APIView):
+    def get(self, request):
+        groups = Group.objects.all()
+        serializer = GroupModelSerializer(groups, many=True)
+        return Response(serializer.data)
+    def post(self, request):
+        serializer = GroupModelSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status.HTTP_400_BAD_REQUEST) 
+
+
+class GroupsGenericsCBView(generics.ListCreateAPIView):
+    queryset = Group.objects.all()
+    serializer_class = GroupModelSerializer
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)

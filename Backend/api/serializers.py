@@ -38,6 +38,14 @@ class GroupSerializer(serializers.Serializer):
         instance.price = validated_data.get('price', instance.price)
         instance.save()
 
+# # Model Serializers
+# class GroupModelSerializer(serializers.ModelSerializer):
+
+#     class Meta:
+#         model = Group
+#         fields = ['id', 'title', 'ip_prerequisite', 'background_color', 'price']
+
+
 class QaSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     id_group = GroupSerializer(read_only=True)

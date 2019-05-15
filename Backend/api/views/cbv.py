@@ -57,7 +57,7 @@ class CompanyGenericsCBView(generics.ListCreateAPIView):
 
 class GroupCBView(APIView):
     def get(self, request):
-        groups = groups.objects.all()
+        groups = Group.objects.all()
         serializer = GroupModelSerializer(groups, many=True)
         return Response(serializer.data)
     def post(self, request):
@@ -69,7 +69,7 @@ class GroupCBView(APIView):
 
 
 class GroupsGenericsCBView(generics.ListCreateAPIView):
-    queryset = Groups.objects.all()
-    serializer_class = GroupsModelSerializer
+    queryset = Group.objects.all()
+    serializer_class = GroupModelSerializer
     permission_classes = (IsAuthenticated,)
     authentication_classes = (TokenAuthentication,)

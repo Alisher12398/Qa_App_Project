@@ -5,7 +5,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authentication import authenticate, TokenAuthentication
 from rest_framework import generics
 from rest_framework.views import APIView
-from api.serializers import QaSerializer, DataSerializer, OffersPurchasesSerializer, OffersSerializer, CompanySerializer, GroupSerializer, QaModelSerializer
+from api.serializers import QaSerializer, DataSerializer, OffersPurchasesSerializer, OffersSerializer, CompanySerializer, GroupSerializer
 from api.models import Group, Data, Qa, Company, Offers, OffersPurchases
 from django.http import Http404
 
@@ -62,30 +62,6 @@ def company(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-#CBV 
-
-# class CompanyCBView(APIView):
-#     def get(self, request):
-#         companies = Company.objects.all()
-#         serializer = CompanyModelSerializer(qas, many=True)
-#         return Response(serializer.data)
-
-#     def post(self, request):
-#         serializer = CompanyModelSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status.HTTP_400_BAD_REQUEST)        
-
-#--------------------------------------------
-
-#CBV Generics
-
-# class CompanyGenericsCBView(generics.ListCreateAPIView):
-#     queryset = Company.objects.all()
-#     serializer_class = CompanyModelSerializer
-#     permission_classes = (IsAuthenticated,)
-#     authentication_classes = (TokenAuthentication,)
 
 @api_view(['GET', 'POST'])
 def offer(request):

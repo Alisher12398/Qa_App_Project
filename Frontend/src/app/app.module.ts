@@ -27,6 +27,7 @@ import { QuizformComponent } from './quizform/quizform.component';
 import { GroupsComponent } from './groups/groups.component';
 import { GroupsformComponent } from './groupsform/groupsform.component';
 import { QaComponent } from './qa/qa.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 let routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -56,6 +57,7 @@ let routes = [
     GroupsComponent,
     GroupsformComponent,
     QaComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

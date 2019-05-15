@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authentication import authenticate, TokenAuthentication
-from api.serializers import QaModelSerializer
+from api.serializers import QaModelSerializer, CompanyModelSerializer
 from api.models import Group, Data, Qa, Company, Offers, OffersPurchases
 
 #CBV 

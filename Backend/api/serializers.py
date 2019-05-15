@@ -38,12 +38,12 @@ class GroupSerializer(serializers.Serializer):
         instance.price = validated_data.get('price', instance.price)
         instance.save()
 
-# # Model Serializers
-# class GroupModelSerializer(serializers.ModelSerializer):
+# Model Serializers
+class GroupModelSerializer(serializers.ModelSerializer):
 
-#     class Meta:
-#         model = Group
-#         fields = ['id', 'title', 'ip_prerequisite', 'background_color', 'price']
+    class Meta:
+        model = Group
+        fields = ['id', 'title', 'ip_prerequisite', 'background_color', 'price']
 
 
 class QaSerializer(serializers.Serializer):
@@ -70,11 +70,11 @@ class QaSerializer(serializers.Serializer):
         instance.answer_right = validated_data.get('answer_right', instance.answer_right)
         instance.save()
 
-# class QaModelSerializer(serializers.ModelSerializer):
+class QaModelSerializer(serializers.ModelSerializer):
 
-#     class Meta:
-#         model = Qa
-#         fields = ['id_group', 'question', 'answer_1', 'answer_2', 'answer_3', 'answer_4', 'answer_right']
+    class Meta:
+        model = Qa
+        fields = ['id_group', 'question', 'answer_1', 'answer_2', 'answer_3', 'answer_4', 'answer_right']
         
 class DataSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
@@ -117,13 +117,11 @@ class CompanySerializer(serializers.Serializer):
         instance.name = validated_data.get('name', instance.name)
         instance.save()
 
-# class CompanyModelSerializer(serializers.ModelSerializer):
+class CompanyModelSerializer(serializers.ModelSerializer):
 
-#     class Meta:
-#         model = Company
-#         fields = ['id', 'name']
-
-
+    class Meta:
+        model = Company
+        fields = ['id', 'name']
 
 
 class OffersSerializer(serializers.Serializer):

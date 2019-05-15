@@ -16,6 +16,11 @@ export interface IProfile{
   avatar: string
 }
 
+export interface ICompany {
+  id: number,
+  name: string,
+}
+
 export interface IOffers {
   id: number,
   id_company: ICompany,
@@ -30,3 +35,13 @@ export interface IOffersPurchases {
   purchase_day: string
 }
 
+export interface IQa {
+  id: number,
+  id_group: number,
+  question: string,
+  answer_1: string,
+  answer_2: string,
+  answer_3: string,
+  answer_4: string,
+  answer_right: number
+}

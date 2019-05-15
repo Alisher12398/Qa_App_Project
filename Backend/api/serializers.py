@@ -90,8 +90,6 @@ class GroupsPurchasesSerializer(serializers.Serializer):
     def update(self, instance, validated_data):
         instance.save()
 
-# class UserInfoSerializer(serializers.Serializer):
-
 class CompanySerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True)
@@ -149,5 +147,6 @@ class UserInfoSerializer(serializers.Serializer):
         return user
 
     def update(self, instance, validated_data):
-        intance.username = validated_data.get('username', instance.username)
-        instance.save()    
+        instance.username = validated_data.get('username', instance.username)
+        instance.save()
+        

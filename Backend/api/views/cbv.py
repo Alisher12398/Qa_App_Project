@@ -37,7 +37,7 @@ class QaGenericsCBView(generics.ListCreateAPIView):
 class CompanyCBView(APIView):
     def get(self, request):
         companies = Company.objects.all()
-        serializer = CompanyModelSerializer(qas, many=True)
+        serializer = CompanyModelSerializer(companies, many=True)
         return Response(serializer.data)
 
     def post(self, request):

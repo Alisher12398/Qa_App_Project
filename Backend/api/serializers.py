@@ -117,6 +117,15 @@ class CompanySerializer(serializers.Serializer):
         instance.name = validated_data.get('name', instance.name)
         instance.save()
 
+# class CompanyModelSerializer(serializers.ModelSerializer):
+
+#     class Meta:
+#         model = Company
+#         fields = ['id', 'name']
+
+
+
+
 class OffersSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     id_company = CompanySerializer(read_only=True)

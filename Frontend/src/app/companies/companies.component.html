@@ -1,20 +1,39 @@
 <section>
-    <div class="container">
+  <div class="container">
+    <div class="companies">
+      <h1 id="tagline1"> Мы работаем с различными компаниями </h1>
+      <h2 id="tagline2"> У которых вы можете получить множество всяческих бонусов </h2>
+
+    <div class="row">
+      <div *ngFor="let offer of offers"> 
+        <div class="col-md-3" id="card">
+          <img src="assets/img/kfc.png" alt="Avatar" style="width:100%">
+          <div class="container">
+            <h4><b> KFC </b></h4>
+            <h6> Цена: {{offer.title}} </h6>
+            <a href="#" class="btn btn-info"  id="detail-btn" data-toggle="modal" data-target="#ModalLong-kfc"> Подробнее </a>
+            <button type="button" class="btn btn-success" id="buy-btn"> Купить </button> 
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 
+<section>
+  <div class="container">
       <div class="companies">
         <h1 id="tagline1"> Мы работаем с различными компаниями </h1>
         <h2 id="tagline2"> У которых вы можете получить множество всяческих бонусов </h2>
   
-        <div class="row">
+        <div class="row" *ngFor="let offer of offers">
 
-          <!-- <div *ngFor="let offer of offers">
-            <div> {{offer.title}} </div>
-          </div> -->
-
-          <div class="col-md-3" id="card">
+          <div class="col-md-3" id="card" style="background-color: blue">
             <img src="assets/img/kfc.png" alt="Avatar" style="width:100%">
             <div class="container">
               <h4><b> KFC </b></h4>
-              <h6> Цена: 20 баллов </h6>
+              <h6> Цена: {{offer.title}} </h6>
               <a href="#" class="btn btn-info"  id="detail-btn" data-toggle="modal" data-target="#ModalLong-kfc"> Подробнее </a>
               <button type="button" class="btn btn-success" id="buy-btn"> Купить </button> 
             </div>
@@ -68,9 +87,10 @@
               <a href="#" class="btn btn-info"  id="detail-btn" data-toggle="modal" data-target="#ModalLong-puma"> Подробнее </a>
               <button type="button" class="btn btn-success" id="buy-btn"> Купить </button>
             </div>
-          </div>
+          </div> -->
+        <!-- </div> -->
         
-          <div class="col-md-3" id="card">
+          <!-- <div class="col-md-3" id="card">
             <img src="assets/img/tba.png" alt="Avatar" style="width:100%">
             <div class="container">
               <h4><b> TBA </b></h4> 
@@ -215,8 +235,8 @@
                           </div>
                         </div>
                       </div>
-                  </div>
-      </div>
+                  </div> -->
+      <!-- </div>
     </div>
   </div>
-</section>
+</section> -->

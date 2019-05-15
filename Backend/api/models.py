@@ -197,6 +197,11 @@ class OffersPurchasesManager(models.Manager):
     def for_user(self, user):
         return self.filter(owner=user)
 
+    def create(self, *args, **kwargs):
+        if 'id_offer' in kwargs and isinstance(kwargs['id_offer'], str):
+            kwargs['id_offer'] = Offers.objects.get(title=kwargs['id_offer'])
+        return super(OffersPurchasesManager, self).create(*args, **kwargs)   
+
 class OffersPurchases(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     id_offer = models.ForeignKey(Offers, on_delete=models.CASCADE)
@@ -215,7 +220,7 @@ class OffersPurchases(models.Model):
         return {
             'id': self.id,
             'id_user': self.owner.id,
-            'id_offer': self.id_offer.get_id(),
+            'id_offer': self.id_offer,
             'purchase_day': self.purchase_day,
             'promocode': self.get_promocode(),
         }

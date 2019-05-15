@@ -22,14 +22,12 @@ export class CompaniesComponent implements OnInit {
     this.provider.getOffers().then(res => {
       this.offers = res;
     })
-
-    // createOfferPurchase() {
-    //   if (this.id_offer !== '') {
-    //     this.provider.purchaseOffer(this.id_offer).then(res => {
-    //       this.purchased_offers.push(res);
-    //     });
-    //   }
-    // }
   }
+
+  addPurchase(){
+    this.provider.purchaseOffer(this.id_offer).then(res => {
+      this.purchased_offers.push(res);
+    });
+}
 
 }

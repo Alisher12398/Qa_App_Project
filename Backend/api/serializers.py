@@ -155,6 +155,13 @@ class OffersPurchasesSerializer(serializers.Serializer):
         instance.purchase_day = validated_data.get('purchase_day', instance.purchase_day)
         instance.save()
 
+class OffersPurchasesModelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = OffersPurchases
+        fields = ['id_offer']
+
+
 class UserInfoSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     username = serializers.CharField(required=True)

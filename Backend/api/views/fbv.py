@@ -1,6 +1,9 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
+from django.http import HttpResponse, JsonResponse
+import json
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authentication import authenticate, TokenAuthentication
 from api.serializers import QaSerializer, DataSerializer, OffersPurchasesSerializer, OffersSerializer, CompanySerializer, GroupSerializer
@@ -85,6 +88,23 @@ def offer_purchases(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+@csrf_exempt
+def purchase_offers(request):
+    if request.method == 'GET':
+        offers_purchased = OffersPurchases.objects.all()
+        for op in offers_purchased:
+            op.get_user_offers()
+        return JsonResponse(OffersPurchases.objects.first().get_user_offers(), safe=False)
+    elif request.method == 'POST':
+        data = json.loads(request.body)
+        offer = Offers.objects.get(pk=1)
+        offer_id = OffersPurchases.objects.create(id_offer=offer)
+        po_list = OffersPurchases(
+            id_offer=data[offer_id]
+        )
+        po_list.save()
+        return JsonResponse(po_list.get_user_offers())        
 
     # @api_view(['GET', 'POST'])
     # def contacts(request):

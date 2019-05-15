@@ -24,7 +24,7 @@ export interface IOffers {
 
 export interface IOffersPurchases {
   id: number,
-  owner: string,
+  owner: IUser,
   id_offer: IOffers,
   promocode: string,
   purchase_day: string

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {MainService} from './main.service';
 import {HttpClient} from '@angular/common/http';
-import {IUser, IOffers, IOffersPurchases} from '../models';
+import {IUser, IOffers, IOffersPurchases, IQa} from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +25,7 @@ export class ProviderService extends MainService {
   //  });
   //}
 
+  getQaForGroup(id: number): Promise<IQa[]> {
+  return this.get(`http://localhost:8000/api/group/${id}/`, {});
+  }
 }

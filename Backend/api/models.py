@@ -221,7 +221,7 @@ class OffersPurchases(models.Model):
         }
 
 class UserInfo(models.Model):
-    username = models.CharField(max_length = 40)
+    id_user = models.ForeignKey(User, on_delete=models.CASCADE)
     user_points = models.IntegerField(0)
     avatar = models.CharField(max_length = 255) 
     id_offers = models.ForeignKey(Offers, on_delete=models.CASCADE)

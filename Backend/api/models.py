@@ -167,16 +167,16 @@ class Offers(models.Model):
 #             kwargs['id_offer'] = Offers.objects.get(title=kwargs['id_offer'])
 #         return super(OffersPurchasesManager, self).create(*args, **kwargs)
 
-# class OffersPurchases(models.Model):
-#     owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-#     id_offer = models.ForeignKey(Offers, on_delete=models.CASCADE)
+class OffersPurchases(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    id_offer = models.ForeignKey(Offers, on_delete=models.CASCADE)
 #     promocode = models.CharField('Promocode', max_length=100, null=True)
 #     purchase_day = models.DateTimeField('Purchase day', default=datetime.now(), blank=True)
 
 #     objects = OffersPurchasesManager()
 
-#     def __str__(self):
-#         return '{}: {}'.format(self.owner, self.id_offer)
+    def __str__(self):
+        return '{}: {}'.format(self.owner, self.id_offer)
 
 #     def get_promocode(self):
 #         return generate_promocode(self.id_offer.get_id2())

@@ -23,7 +23,7 @@ class QaList(APIView):
 class OfferPuchasesCBView(APIView):
 
     def get(self, request):
-        op = OffersPuchases.objects.all()
+        op = OffersPurchases.objects.all()
         serializer = OffersPurchasesSerializer(op, many=True)
         return Response(serializer.data)
     def post(self, request):

@@ -1,0 +1,8 @@
+.groups {
+  width: 100%;
+  position: relative;
+  background: url("../../assets/img/intro-bg.png") center bottom no-repeat;
+  background-size: cover;
+  background-color: #F8F8F8;
+  padding: 95px 0 120px 0;
+}

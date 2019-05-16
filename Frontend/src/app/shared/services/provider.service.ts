@@ -19,11 +19,11 @@ export class ProviderService extends MainService {
     return this.get('http://localhost:8000/api/offers/', {});
   }
 
-  //purchaseOffer(idoffer: IOffersPurchases): Promise<IOffersPurchases> {
-  //  return this.post('http://localhost:8000/api/purchases/offers/', {
-  //    id_offer: idoffer.id_offer
-  //  });
-  //}
+  purchaseOffer(id_offer: IOffers): Promise<IOffersPurchases> {
+   return this.post('http://localhost:8000/api/purchases/offers/', {
+     id_offer: id_offer
+   });
+  }
 
   getQaForGroup(id: number): Promise<IQa[]> {
   return this.get(`http://localhost:8000/api/group/${id}/`, {});

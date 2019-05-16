@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<ng-container body>
+  <div class="container">
+    <br>
+    <br>
+    <table class="table">
+      <tr>
+        <td>#</td>
+        <td>Quiestion</td>
+        <td>A1</td>
+        <td>A1</td>
+        <td>A3</td>
+        <td>A4</td>
+        <td>A Right</td>
+      </tr>
+      <tr *ngFor="let taskList of qaList">
+        <td>{{taskList.id}}</td>
+<!--        <td>{{taskList.id_group}}</td>-->
+        <td>{{taskList.question}}</td>
+        <td>{{taskList.answer_1}}</td>
+        <td>{{taskList.answer_2}}</td>
+        <td>{{taskList.answer_3}}</td>
+        <td>{{taskList.answer_4}}</td>
+        <td>{{taskList.answer_right}}</td>
+      </tr>
+    </table>
+  </div>
+</ng-container>
+
+

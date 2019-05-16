@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<ng-container body>
+  <div class="container">
+    <br>
+    <br>
+    <table class="table">
+      <tr>
+        <td>#</td>
+        <td>Name</td>
+      </tr>
+      <tr *ngFor="let taskList of groupList">
+        <td>{{taskList.id}}</td>
+        <td>{{taskList.title}}</td>
+        <td>
+          <a routerLink="/groups/{{taskList.id}}/">Выбрать</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</ng-container>
+
+

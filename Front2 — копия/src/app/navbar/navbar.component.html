@@ -1,0 +1,36 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-white">
+  <a class="navbar-brand" routerLink="/" style="margin-left: 20px">QuizUp</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbar1">
+    <ul class="navbar-nav mr-4">
+      <li class="nav-item" *ngIf="!auth.isAuthenticated()">
+        <a class="nav-link" routerLink="/">О нас</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.isAuthenticated()">
+        <a routerLink="/groups" class="nav-link">Группы вопросов</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="/companies">Партнеры</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="/quiz">Категории</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLink="/profile">Профайл</a>
+      </li>
+      <li class="nav-item" *ngIf="!auth.isAuthenticated()">
+        <a routerLink="/login" class="nav-link">Log In</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.isAuthenticated()">
+        <a class="nav-link" (click)="logout()">Log Out</a>
+      </li>
+      <li class="nav-item" *ngIf="!auth.isAuthenticated()">
+        <a routerLink="/register" class="nav-link">Register</a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,4 +1,40 @@
-from django.shortcuts import render
+from rest_framework import generics
+
+from api.models import Group, Qa
+from api.serializers import GroupSerializer, QaSerializer
+
+
+class GroupList(generics.ListAPIView):
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+
+
+class GroupDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # from .models import *
 # from django.http import JsonResponse
 # from django.views.decorators.csrf import csrf_exempt

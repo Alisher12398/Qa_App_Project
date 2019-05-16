@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Group, Qa
+from api.models import Group, Qa, Company, Offers
 from auth_.serializers import UserSerializer
 
 # class ContactSerializer(serializers.Serializer):
@@ -43,6 +43,22 @@ class QaSerializer(serializers.ModelSerializer):
         model = Qa
         fields = '__all__'
 
+class CompanySerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(required=True)
+
+    class Meta:
+        model = Company
+        fields = '__all__'
+
+class OffersSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    id_company = CompanySerializer(read_only=True)
+    title = serializers.CharField(required=True)
+
+    class Meta:
+        model = Offers
+        fields = '__all__'
 
 # class QaModelSerializer(serializers.ModelSerializer):
 #

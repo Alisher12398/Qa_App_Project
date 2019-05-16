@@ -135,79 +135,52 @@ class Data(models.Model):
 #     def get_id(self):
 #         return '{}'.format(self.id)
 #
-#
-# class Company(models.Model):
-#     name = models.CharField('Name', max_length=60)
-#
-#     def __str__(self):
-#         return '{}: {}'.format(self.id, self.name)
-#
-#     def get_companies(self):
-#         return {
-#             'id': self.id,
-#             'name': self.name,
-#         }
-#     def get_company(self):
-#         return '{}'.format(self.name)
-#
-#     def get_id(self):
-#         return '{}'.format(self.id)
-#
-#
-# class Offers(models.Model):
-#     id_company = models.ForeignKey(Company, on_delete=models.CASCADE)
-#     title = models.CharField('Title', max_length=100)
-#
-#     def __str__(self):
-#         return '{}:{} {}'.format(self.id, self.id_company, self.title)
-#
-#     def get_offers(self):
-#         return {
-#             'id': self.id,
-#             'id_company': self.id_company.get_company(),
-#             'title': self.title,
-#         }
-#
-#     def get_id(self):
-#         return '{}'.format(self.id)
-#
-#     def get_id_value(self):
-#         return self.id
-#
-#     def get_id2(self):
-#         return self.id
-#
-#
+
+class Company(models.Model):
+    name = models.CharField('Name', max_length=60)
+
+    def __str__(self):
+        return '{}: {}'.format(self.id, self.name)
+
+class Offers(models.Model):
+    id_company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    title = models.CharField('Title', max_length=100)
+    price = models.IntegerField()
+    
+    def __str__(self):
+        return '{}:{} {}'.format(self.id, self.id_company, self.title)
+
+
 # def generate_promocode(offer):
 #     date = datetime.now()
 #     day = 100 - int(date.day)
 #     month = int((str(date.month)[::-1]))
 #     promocode = str(offer) +'/' + str(day) + str(month)
 #     return promocode
-#
+
 # class OffersPurchasesManager(models.Manager):
 #     def for_user(self, user):
 #         return self.filter(owner=user)
-#
+
 #     def create(self, *args, **kwargs):
 #         if 'id_offer' in kwargs and isinstance(kwargs['id_offer'], str):
 #             kwargs['id_offer'] = Offers.objects.get(title=kwargs['id_offer'])
 #         return super(OffersPurchasesManager, self).create(*args, **kwargs)
-#
+
 # class OffersPurchases(models.Model):
 #     owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 #     id_offer = models.ForeignKey(Offers, on_delete=models.CASCADE)
 #     promocode = models.CharField('Promocode', max_length=100, null=True)
 #     purchase_day = models.DateTimeField('Purchase day', default=datetime.now(), blank=True)
-#
+
 #     objects = OffersPurchasesManager()
-#
+
 #     def __str__(self):
 #         return '{}: {}'.format(self.owner, self.id_offer)
-#
+
 #     def get_promocode(self):
 #         return generate_promocode(self.id_offer.get_id2())
-#
+
 #     def get_user_offers(self):
 #         return {
 #             'id': self.id,
@@ -216,7 +189,7 @@ class Data(models.Model):
 #             'purchase_day': self.purchase_day,
 #             'promocode': self.get_promocode(),
 #         }
-#
+
 # class UserInfo(models.Model):
 #     username = models.CharField(max_length = 40)
 #     user_points = models.IntegerField(0)

@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from api.models import Group, Qa
-from api.serializers import GroupSerializer, QaSerializer
+from api.models import Group, Qa, Offers, Company
+from api.serializers import GroupSerializer, QaSerializer, OffersSerializer, CompanySerializer
 
 
 class GroupList(generics.ListAPIView):
@@ -13,7 +13,9 @@ class GroupDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
-
+class OffersList(generics.ListAPIView):
+    queryset = Offers.objects.all()
+    serializer_class = OffersSerializer
 
 
 

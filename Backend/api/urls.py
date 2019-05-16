@@ -22,5 +22,5 @@ urlpatterns = [
     path('groups/', GroupList.as_view()),
     path ('groups/<int:pk>/', GroupDetail.as_view()),
     path ('qas/<int:pk>/', qa_list),
-
+    path ('offers/', OffersList.as_view()),
 ]

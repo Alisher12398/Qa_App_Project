@@ -16,7 +16,7 @@
       <li class="nav-item">
         <a class="nav-link " routerLink="/offers">Офферы</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="auth.isAuthenticated()">
         <a class="nav-link " routerLink="/profile">Профайл</a>
       </li>
       <li class="nav-item" *ngIf="!auth.isAuthenticated()">

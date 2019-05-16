@@ -1,7 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {MainService} from './main.service';
 import {HttpClient} from '@angular/common/http';
-import {IGroup, IAuthResponse, IContactNew, IQa, IOffers} from '../models';
+import {IGroup, IAuthResponse, IContactNew, IQa, IOffers, IUser} from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +30,10 @@ export class ProviderService extends MainService {
   }
   getOffers(): Promise<IOffers[]> {
     return this.get(`http://localhost:8000/api/offers/`, {});
+  }
+
+  getUser(): Promise<IUser[]> {
+    return this.get(`http://localhost:8000/auth/users/`, {});
   }
   //
   // createContact(name: any, phone: any): Promise<IContact> {

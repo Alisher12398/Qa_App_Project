@@ -1,21 +1,23 @@
 <app-navbar></app-navbar>
 <ng-container body>
-  <div class="container">
-    <br>
-    <br>
-    <table class="table">
-      <tr>
-        <td>#</td>
-        <td>Name</td>
-      </tr>
-      <tr *ngFor="let taskList of groupList">
-        <td>{{taskList.id}}</td>
-        <td>{{taskList.title}}</td>
-        <td>
-          <a routerLink="/groups/{{taskList.id}}/">Выбрать</a>
-        </td>
-      </tr>
-    </table>
+  <div class="groups">
+    <div class="container">
+      <br>
+      <br>
+      <table class="table">
+        <tr>
+          <td style="color: white">#</td>
+          <td style="color: white">Name</td>
+        </tr>
+        <tr *ngFor="let taskList of groupList">
+          <td style="color: white">{{taskList.id}}</td>
+          <td style="color: white">{{taskList.title}}</td>
+          <td>
+            <a routerLink="/groups/{{taskList.id}}/">Выбрать</a>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </ng-container>
 

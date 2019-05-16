@@ -1,26 +1,16 @@
-<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap-grid.css">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
 <section id="intro" class="clearfix">
-    <div class="container">
-           
-      <div class="intro-info">
-        <h2>Регистрация</h2>
-                
-        <input type="mail" id="mail_reg" [(ngModel)]="mail" class="btn btn-primary" placeholder="Почта">
-        <input type="text" id="nick_reg" [(ngModel)]="username" class="btn btn-primary" placeholder="Никнейм">
-        <input type="password" id="passw_reg"  [(ngModel)]="password" class="btn btn-primary" placeholder="Пароль">
-        <input type="password" id="passw2_reg"[(ngModel)]="password2" class="btn btn-primary" placeholder="Подтвердите пароль">
-        
-        <div>
-            <a routerLink="/login" class="btn-get-started scrollto" >Войти</a>
-            <a routerLink="/registration" class="btn-get-started scrollto" style="float:right">Зарегистрироваться</a>
-            
-        </div>
+  <ng-container authforms>
+    <div>
+      <div class="form-group">
+        <label for="InputUsername">Username</label>
+        <input type="text" class="form-control" id="InputUsername" [(ngModel)]="username" placeholder="Enter username">
       </div>
-      
-      
+      <div class="form-group">
+        <label for="InputPassword">Password</label>
+        <input type="password" class="form-control" id="InputPassword" placeholder="Password" [(ngModel)]="password">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="register()">Submit</button>
     </div>
+  </ng-container>
+
   </section>

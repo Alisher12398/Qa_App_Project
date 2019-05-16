@@ -1,23 +1,16 @@
-<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../../assets/css/bootstrap-grid.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-
 <section id="intro" class="clearfix">
-    <div class="container">
-      
-      <div class="intro-info">
-        <h2>Войдите в аккаунт</h2>
-        <input id="mail_sign" type="text" [(ngModel)]="username" class="btn btn-primary" placeholder="Почта/никнейм">
-        <input id="passw_sign" type="password" [(ngModel)]="password" class="btn btn-primary" placeholder="Пароль">
-        
-        <div>
-          <a routerLink="/registration" class="btn-get-started scrollto">Зарегистрироваться</a>
-          <a routerLink="/profile" class="btn-get-started scrollto" style="float:right;">Войти</a>
-        </div>
+  <ng-container authforms>
+    <div>
+      <div class="form-group">
+        <label for="InputUsername">Username</label>
+        <input type="text" class="form-control" id="InputUsername" [(ngModel)]="username" placeholder="Enter username">
       </div>
-      
-      
+      <div class="form-group">
+        <label for="InputPassword">Password</label>
+        <input type="password" class="form-control" id="InputPassword" placeholder="Password" [(ngModel)]="password">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="login()">Submit</button>
     </div>
+  </ng-container>
   </section>
 

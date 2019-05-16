@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import {AuthService} from '../../shared/service/auth.service';
+import { ProviderService } from 'src/app/shared/services/provider.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-logform',
@@ -7,28 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logform.component.css']
 })
 export class LogformComponent implements OnInit {
-  // authenticated = false;
-  // username = '';
-  // password = '';
-  // errors: string = null;
+
+  public username: any = "";
+
+  public password: any = "";
 
   constructor(
-    // private auth: AuthService,
-    // private route: ActivatedRoute,
-    // private router: Router
-  ) {
-  }
+    private provider: ProviderService,
+    private auth: AuthService
+  ) { }
 
   ngOnInit() {
   }
 
-  // authenticate(username: string, password: string) {
-  //   this.auth.authenticate(username, password).then(res => {
-  //     this.authenticated = true;
-  //     this.router.navigateByUrl('/');
-  //   }).catch(err => {
-  //     this.errors = err;
-  //   });
-  // }
+  login() {
+      this.auth.login(this.username, this.password);
+  }
 
 }

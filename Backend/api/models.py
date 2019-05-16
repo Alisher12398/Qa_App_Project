@@ -170,6 +170,7 @@ class Offers(models.Model):
 class OffersPurchases(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     id_offer = models.ForeignKey(Offers, on_delete=models.CASCADE)
+    
 #     promocode = models.CharField('Promocode', max_length=100, null=True)
 #     purchase_day = models.DateTimeField('Purchase day', default=datetime.now(), blank=True)
 # class UserInfo(models.Model):

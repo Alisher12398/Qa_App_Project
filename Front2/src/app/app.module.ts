@@ -10,8 +10,6 @@ import { ProviderService } from './shared/services/provider.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from '@angular/forms';
-// import { ContactsComponent } from './contacts/contacts.component';
-// import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -21,14 +19,13 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GroupsComponent } from './groups/groups.component';
 import { QaComponent } from './qa/qa.component';
+import { OffersComponent } from './offers/offers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    // ContactsComponent,
-    // ContactDetailComponent,
     NavbarComponent,
     JumbotronComponent,
     MainPageComponent,
@@ -37,7 +34,8 @@ import { QaComponent } from './qa/qa.component';
     FooterComponent,
     ProfileComponent,
     GroupsComponent,
-    QaComponent
+    QaComponent,
+    OffersComponent
   ],
   imports: [
     BrowserModule,

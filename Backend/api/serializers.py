@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Group, Qa, Company, Offers
+from api.models import Group, Qa, Company, Offers, OffersPurchases
 from auth_.serializers import UserSerializer
 
 # class ContactSerializer(serializers.Serializer):
@@ -58,6 +58,15 @@ class OffersSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Offers
+        fields = '__all__'
+
+class OffersPurchasesSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
+    owner = UserSerializer(read_only=True)
+    id_offer = OffersSerializer(read_only=True)
+
+    class Meta:
+        model = OffersPurchases
         fields = '__all__'
 
 # class QaModelSerializer(serializers.ModelSerializer):

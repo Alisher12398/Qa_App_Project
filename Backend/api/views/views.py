@@ -36,7 +36,6 @@ class OffersList(generics.ListAPIView):
 
 
 
-
 # from .models import *
 # from django.http import JsonResponse
 # from django.views.decorators.csrf import csrf_exempt

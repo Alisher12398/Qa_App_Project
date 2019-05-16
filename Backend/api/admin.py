@@ -10,3 +10,6 @@ from .models import *
 
 admin.site.register(Group)
 admin.site.register(Qa)
+admin.site.register(Offers)
+admin.site.register(Company)
+admin.site.register(OffersPurchases)

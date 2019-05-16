@@ -6,6 +6,9 @@
   position: relative;
   margin-bottom: 0;
   clear:both;
+  width: 100%;
+  position: bottom;
+  bottom: 0;
 }
 
 #footer .footer-top {

@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<ng-container body>
+  <div class="container">
+    <br>
+    <br>
+    <table class="table">
+      <tr>
+        <td>#</td>
+        <td>Title</td>
+        <td>Price</td>
+      </tr>
+      <tr *ngFor="let taskList of offersList">
+        <td>{{taskList.id}}</td>
+        <td>{{taskList.title}}</td>
+        <td>{{taskList.price}}</td>
+        <td>
+          <a routerLink="/offers/">Купить</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</ng-container>
+<app-footer></app-footer>

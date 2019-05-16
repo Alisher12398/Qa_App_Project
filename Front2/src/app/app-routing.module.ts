@@ -6,6 +6,7 @@ import {MainPageComponent} from './main-page/main-page.component';
 import {ProfileComponent} from './profile/profile.component';
 import {GroupsComponent} from './groups/groups.component';
 import {QaComponent} from './qa/qa.component';
+import {OffersComponent} from './offers/offers.component';
 
 const routes: Routes = [
   {path: '', component: MainPageComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'groups', component: GroupsComponent},
+  {path: 'offers', component: OffersComponent},
   {path: 'groups/:id', component: QaComponent},
 ];
 

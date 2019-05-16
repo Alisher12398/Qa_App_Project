@@ -1,7 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {MainService} from './main.service';
 import {HttpClient} from '@angular/common/http';
-import {IGroup, IAuthResponse, IContactNew, IQa,} from '../models';
+import {IGroup, IAuthResponse, IContactNew, IQa, IOffers} from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,9 @@ export class ProviderService extends MainService {
   // }
   getQa(id: number): Promise<IQa[]> {
     return this.get(`http://localhost:8000/api/qas/${id}/`, {});
+  }
+  getOffers(): Promise<IOffers[]> {
+    return this.get(`http://localhost:8000/api/offers/`, {});
   }
   //
   // createContact(name: any, phone: any): Promise<IContact> {

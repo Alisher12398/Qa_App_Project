@@ -21,6 +21,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GroupsComponent } from './groups/groups.component';
 import { QaComponent } from './qa/qa.component';
+import { OffersComponent } from './offers/offers.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { QaComponent } from './qa/qa.component';
     FooterComponent,
     ProfileComponent,
     GroupsComponent,
-    QaComponent
+    QaComponent,
+    OffersComponent
   ],
   imports: [
     BrowserModule,

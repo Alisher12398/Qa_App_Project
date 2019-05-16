@@ -172,6 +172,12 @@ class OffersPurchases(models.Model):
     id_offer = models.ForeignKey(Offers, on_delete=models.CASCADE)
 #     promocode = models.CharField('Promocode', max_length=100, null=True)
 #     purchase_day = models.DateTimeField('Purchase day', default=datetime.now(), blank=True)
+# class UserInfo(models.Model):
+#     id_user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     user_points = models.IntegerField(0)
+#     avatar = models.CharField(max_length = 255) 
+#     id_offers = models.ForeignKey(Offers, on_delete=models.CASCADE)
+
 
 #     objects = OffersPurchasesManager()
 

@@ -11,6 +11,12 @@ export interface IGroup {
   price: number
 }
 
+export interface IOffers {
+  id: number,
+  title: string,
+  price: number
+}
+
 export interface IQa {
   id: number,
   question: string,

@@ -7,7 +7,7 @@
           <div class="userpic">
             <img src="././assets/img/user-tie-solid.svg" alt="" class="btn btn-default userpicimg">
           </div>
-          <h3 class="username text-center">{{username}}</h3>
+
           <p class="text-center"></p>
           <div class="socials text-center"> <a href="" class="btn btn-circle btn-primary ">
             <i class="fa fa-facebook"></i></a> <a href="" class="btn btn-circle btn-danger ">
@@ -48,9 +48,9 @@
         <td style="color: white">#</td>
         <td style="color: white">Name</td>
       </tr>
-      <tr *ngFor="let taskList of users">
-        <td style="color: white">{{taskList.id}}</td>
-        <td style="color: white">{{taskList.username}}</td>
+      <tr *ngFor="let user of users">
+        <td style="color: white">{{user.id}}</td>
+        <td style="color: white">{{user.username}}</td>
       </tr>
     </table>
   </div>

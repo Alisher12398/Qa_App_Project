@@ -10,8 +10,6 @@ import { ProviderService } from './shared/services/provider.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from '@angular/forms';
-// import { ContactsComponent } from './contacts/contacts.component';
-// import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -28,8 +26,6 @@ import { OffersComponent } from './offers/offers.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    // ContactsComponent,
-    // ContactDetailComponent,
     NavbarComponent,
     JumbotronComponent,
     MainPageComponent,

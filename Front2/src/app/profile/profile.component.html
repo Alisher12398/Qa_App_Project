@@ -39,4 +39,21 @@
     </div>
   </div>
 </section>
+
+<div class="users_style">
+  <div class="container">
+    <br>
+    <br>
+    <table class="table">
+      <tr>
+        <td style="color: white">#</td>
+        <td style="color: white">Name</td>
+      </tr>
+      <tr *ngFor="let taskList of users">
+        <td style="color: white">{{taskList.id}}</td>
+        <td style="color: white">{{taskList.username}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
 <app-footer></app-footer>
